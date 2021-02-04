@@ -1,0 +1,19 @@
+spring:
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  datasource:
+#    initialization-mode: ALWAYS
+    driver-class-name: org.postgresql.Driver
+    url: ${MY_DB_URL:jdbc:postgresql://localhost:5432/postgres}
+    username: ${MY_DB_USER:postgres}
+    password: ${MY_DB_PASSWORD:root}
+logging:
+  level:
+    org:
+      springframework:
+        jdbc:
+          datasource:
+            init:
+              ScriptUtils: debug
