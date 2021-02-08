@@ -7,6 +7,6 @@ public class AccountsCreateVM {
 
     private String name;
     private String website;
-    private String primaryContactPerson;
+    private String pContact;
     private Long salesId;
 }

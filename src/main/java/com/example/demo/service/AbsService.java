@@ -25,9 +25,6 @@ public abstract class AbsService<E extends BaseEntity, D extends DTO, R extends 
 
     public Page<E> getPage(Pageable pageable) {
         Page<E> all = repository.findAll(pageable);
-//        List<E> content = all.getContent();
-//        long totalElements = all.getTotalElements();
-//        int totalPages = all.getTotalPages();
         return all;
     }
 

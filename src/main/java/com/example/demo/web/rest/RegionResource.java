@@ -21,6 +21,11 @@ public class RegionResource {
         return ResponseEntity.ok(service.getAll());
     }
 
+    @GetMapping("/regions/{id}")
+    public ResponseEntity<?> getById(@PathVariable Long id){
+        return ResponseEntity.ok(service.get(id));
+    }
+
     @PostMapping("/regions")
     public ResponseEntity<RegionDTO> create(@RequestBody RegionDTO region) {
         return new ResponseEntity<>(service.create(region), HttpStatus.CREATED);

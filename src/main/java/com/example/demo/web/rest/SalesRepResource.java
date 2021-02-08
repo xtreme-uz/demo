@@ -2,7 +2,6 @@ package com.example.demo.web.rest;
 
 
 import com.example.demo.service.SalesRepService;
-import com.example.demo.service.dto.RegionDTO;
 import com.example.demo.service.dto.SalesRepDTO;
 import com.example.demo.web.rest.vm.SalesRepCreateVM;
 import lombok.RequiredArgsConstructor;
@@ -22,6 +21,11 @@ public class SalesRepResource {
     @GetMapping("/sales")
     public ResponseEntity<?> getAll() {
         return ResponseEntity.ok(service.getAll());
+    }
+
+    @GetMapping("/sales/{id}")
+    public ResponseEntity<?> getById(@PathVariable Long id){
+        return ResponseEntity.ok(service.get(id));
     }
 
     @PostMapping("/sales")

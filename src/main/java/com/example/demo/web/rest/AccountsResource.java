@@ -18,6 +18,14 @@ public class AccountsResource {
 
     private final AccountsService service;
 
+    //Should return id and Names columns from Accounts table
+    //contact person is not showing
+    @GetMapping("/accounts/nameColumns")
+    public ResponseEntity<?> getAllNames(){
+        return ResponseEntity.ok(service.getIdAndName());
+    }
+
+
     @GetMapping("/accounts")
     public ResponseEntity<?> getAll() {
         return ResponseEntity.ok(service.getAll());
@@ -32,11 +40,6 @@ public class AccountsResource {
     public ResponseEntity<?> getPage(@RequestBody Pageable pageable) {
         return ResponseEntity.ok(service.getPage(pageable));
     }
-
-//    @GetMapping("/accounts/{username}")
-//    public ResponseEntity<?> getByUsername(@PathVariable String username) {
-//        return ResponseEntity.ok(service.getByUsername(username));
-//    }
 
     @PostMapping("/accounts")
     public ResponseEntity<AccountsDTO> create(@RequestBody AccountsCreateVM vm) {

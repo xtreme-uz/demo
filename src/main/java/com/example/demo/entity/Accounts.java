@@ -18,7 +18,7 @@ public class Accounts extends BaseEntity {
 
     private String name;
     private String website;
-    private String primaryContactPerson;
+    private String pContact;
 
     @ManyToOne
     @JoinColumn(name="sales_rep_id", referencedColumnName = "id")
