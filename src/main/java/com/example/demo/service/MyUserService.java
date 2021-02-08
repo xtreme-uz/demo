@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.entity.MyUser;
+import com.example.demo.service.exception.ObjectNotFoundException;
 import com.example.demo.service.mapper.MyUserMapper;
 import com.example.demo.repository.UserRepository;
 import com.example.demo.service.dto.MyUserDTO;
@@ -18,7 +19,7 @@ public class MyUserService extends AbsService<MyUser, MyUserDTO, UserRepository,
 
     public MyUserProject getByUsername(String username) {
         Optional<MyUserProject> found = repository.getByUsername(username);
-        return found.orElseThrow(() -> new RuntimeException("User not found"));
+        return found.orElseThrow(() -> new ObjectNotFoundException("User not found"));
     }
 
 }

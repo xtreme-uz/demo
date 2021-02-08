@@ -1,6 +1,8 @@
 package com.example.demo.service;
 
 import com.example.demo.entity.BaseEntity;
+import com.example.demo.service.exception.ObjectFieldRequiredException;
+import com.example.demo.service.exception.ObjectNotFoundException;
 import com.example.demo.service.mapper.BaseMapper;
 import com.example.demo.service.dto.DTO;
 import org.springframework.data.domain.Page;
@@ -36,13 +38,13 @@ public abstract class AbsService<E extends BaseEntity, D extends DTO, R extends 
     }
 
     public D get(Long id) {
-        return mapper.toDto(repository.findById(id).orElseThrow(() -> new RuntimeException("User not found")));
+        return mapper.toDto(repository.findById(id).orElseThrow(() -> new ObjectNotFoundException("Object not found")));
     }
 
     public D update(Long id, D dto) {
 
         if (id == null)
-            throw new RuntimeException("User id required");
+            throw new ObjectFieldRequiredException("Object id required");
 
         E updatable = mapper.fromDto(dto);
         updatable.setId(id);
