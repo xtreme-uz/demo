@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @Setter
@@ -23,10 +24,10 @@ public class Accounts extends BaseEntity {
     @JoinColumn(name="sales_rep_id", referencedColumnName = "id")
     private SalesRep salesId;
 
-//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "accounts")
-//    private List<Orders> orders;
-//
-//    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
-//    private List<WebEvents> webEvents;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "accounts")
+    private List<Orders> orders;
+
+    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
+    private List<WebEvents> webEvents;
 
 }
