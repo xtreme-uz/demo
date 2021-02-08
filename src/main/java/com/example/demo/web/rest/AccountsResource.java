@@ -1,7 +1,7 @@
 package com.example.demo.web.rest;
 
-import com.example.demo.service.MyUserService;
-import com.example.demo.service.dto.MyUserDTO;
+import com.example.demo.service.AccountsService;
+import com.example.demo.service.dto.AccountsDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -13,9 +13,9 @@ import java.util.Collections;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api")
-public class UserResource {
+public class AccountsResource {
 
-    private final MyUserService service;
+    private final AccountsService service;
 
     @GetMapping("/users")
     public ResponseEntity<?> getAll() {
@@ -33,12 +33,12 @@ public class UserResource {
     }
 
     @PostMapping("/users")
-    public ResponseEntity<MyUserDTO> create(@RequestBody MyUserDTO user) {
+    public ResponseEntity<AccountsDTO> create(@RequestBody AccountsDTO user) {
         return new ResponseEntity<>(service.create(user), HttpStatus.CREATED);
     }
 
     @PutMapping("/users/{id}")
-    public ResponseEntity<MyUserDTO> update(@RequestBody MyUserDTO user, @PathVariable Long id) {
+    public ResponseEntity<AccountsDTO> update(@RequestBody AccountsDTO user, @PathVariable Long id) {
         return ResponseEntity.ok(service.update(id, user));
     }
 
