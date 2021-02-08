@@ -1,7 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.entity.MyUser;
-import com.example.demo.mapper.MyUserMapper;
+import com.example.demo.service.mapper.MyUserMapper;
 import com.example.demo.repository.UserRepository;
 import com.example.demo.service.dto.MyUserDTO;
 import com.example.demo.service.dto.MyUserProject;

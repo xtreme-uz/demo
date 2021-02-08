@@ -1,7 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.entity.BaseEntity;
-import com.example.demo.mapper.BaseMapper;
+import com.example.demo.service.mapper.BaseMapper;
 import com.example.demo.service.dto.DTO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

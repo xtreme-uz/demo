@@ -1,4 +1,4 @@
-package com.example.demo.mapper;
+package com.example.demo.service.mapper;
 
 import com.example.demo.entity.Region;
 import com.example.demo.service.dto.RegionDTO;
