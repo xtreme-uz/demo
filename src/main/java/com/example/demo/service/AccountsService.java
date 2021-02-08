@@ -17,8 +17,8 @@ public class AccountsService extends AbsService<Accounts, AccountsDTO, AccountsR
         this.salesService = salesService;
     }
 
-//    public AccountsProject getByUsername(String username) {
-//        Optional<AccountsProject> found = repository.getByUsername(username);
+//    public AccountsProject getByUsername(String accounts) {
+//        Optional<AccountsProject> found = repository.getByUsername(accounts);
 //        return found.orElseThrow(() -> new RuntimeException("User not found"));
 //    }
 

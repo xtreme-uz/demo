@@ -4,6 +4,9 @@ public interface AccountsProject {
 
     Long getId();
 
-    String getUsername();
+    String getAccounts();
 
+    String getName();
+    String getWebsite();
+    String getPrimaryContactPerson();
 }

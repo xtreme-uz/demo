@@ -23,8 +23,13 @@ public class AccountsResource {
         return ResponseEntity.ok(service.getAll());
     }
 
+    @GetMapping("/accounts/{id}")
+    public ResponseEntity<?> getById(@PathVariable Long id){
+        return ResponseEntity.ok(service.get(id));
+    }
+
     @GetMapping("/accounts/pageable")
-    public ResponseEntity<?> getPage(Pageable pageable) {
+    public ResponseEntity<?> getPage(@RequestBody Pageable pageable) {
         return ResponseEntity.ok(service.getPage(pageable));
     }
 
