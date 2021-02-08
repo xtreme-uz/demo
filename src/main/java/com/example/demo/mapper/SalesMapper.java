@@ -10,7 +10,4 @@ public interface SalesMapper extends BaseMapper<SalesRep, SalesRepDTO> {
 
     SalesMapper INSTANCE = Mappers.getMapper(SalesMapper.class);
 
-//    @Mapping(target = "regionId", source = "region.id")
-//    SalesRepCreateVM toVm(SalesRepDTO dto);
-
 }

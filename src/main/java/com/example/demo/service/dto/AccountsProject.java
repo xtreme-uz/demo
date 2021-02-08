@@ -1,6 +1,6 @@
 package com.example.demo.service.dto;
 
-public interface MyUserProject {
+public interface AccountsProject {
 
     Long getId();
 

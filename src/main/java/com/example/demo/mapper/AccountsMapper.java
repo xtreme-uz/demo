@@ -1,13 +1,13 @@
 package com.example.demo.mapper;
 
-import com.example.demo.entity.MyUser;
-import com.example.demo.service.dto.MyUserDTO;
+import com.example.demo.entity.Accounts;
+import com.example.demo.service.dto.AccountsDTO;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
-@Mapper(componentModel = "spring")
-public interface MyUserMapper extends BaseMapper<MyUser, MyUserDTO> {
+@Mapper(componentModel = "spring", uses = {SalesMapper.class})
+public interface AccountsMapper extends BaseMapper<Accounts, AccountsDTO> {
 
-    MyUserMapper INSTANCE = Mappers.getMapper(MyUserMapper.class);
+    AccountsMapper INSTANCE = Mappers.getMapper(AccountsMapper.class);
 
 }

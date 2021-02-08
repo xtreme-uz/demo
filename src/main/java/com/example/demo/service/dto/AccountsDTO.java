@@ -9,12 +9,12 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class MyUserDTO implements DTO {
+public class AccountsDTO implements DTO {
 
     private Long id;
-
-    private String username;
-
-    private String password;
+    private String name;
+    private String website;
+    private String primaryContactPerson;
+    private SalesRepDTO salesId;
 
 }

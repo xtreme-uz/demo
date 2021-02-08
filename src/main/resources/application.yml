@@ -1,3 +1,5 @@
+server:
+  port: 8081
 spring:
   jpa:
     show-sql: true
@@ -8,7 +10,7 @@ spring:
     driver-class-name: org.postgresql.Driver
     url: ${MY_DB_URL:jdbc:postgresql://localhost:5432/postgres}
     username: ${MY_DB_USER:postgres}
-    password: ${MY_DB_PASSWORD:root}
+    password: ${MY_DB_PASSWORD:postgres}
 logging:
   level:
     org:

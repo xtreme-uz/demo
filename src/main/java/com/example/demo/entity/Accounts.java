@@ -12,13 +12,21 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "users")
-public class MyUser extends BaseEntity {
+@Table(name = "accounts")
+public class Accounts extends BaseEntity {
 
-    @Column(unique = true)
-    private String username;
+    private String name;
+    private String website;
+    private String primaryContactPerson;
 
-    @Column(nullable = false)
-    private String password;
+    @ManyToOne
+    @JoinColumn(name="sales_rep_id", referencedColumnName = "id")
+    private SalesRep salesId;
+
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "accounts")
+//    private List<Orders> orders;
+//
+//    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
+//    private List<WebEvents> webEvents;
 
 }

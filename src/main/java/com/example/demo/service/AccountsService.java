@@ -1,24 +1,34 @@
 package com.example.demo.service;
 
-import com.example.demo.entity.MyUser;
-import com.example.demo.mapper.MyUserMapper;
-import com.example.demo.repository.UserRepository;
-import com.example.demo.service.dto.MyUserDTO;
-import com.example.demo.service.dto.MyUserProject;
+import com.example.demo.entity.Accounts;
+import com.example.demo.mapper.AccountsMapper;
+import com.example.demo.repository.AccountsRepository;
+import com.example.demo.service.dto.AccountsDTO;
+import com.example.demo.web.rest.vm.AccountsCreateVM;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
-
 @Service
-public class MyUserService extends AbsService<MyUser, MyUserDTO, UserRepository, MyUserMapper> {
+public class AccountsService extends AbsService<Accounts, AccountsDTO, AccountsRepository, AccountsMapper> {
 
-    protected MyUserService(UserRepository repository, MyUserMapper mapper) {
+    private final SalesRepService salesService;
+
+    public AccountsService(AccountsRepository repository, AccountsMapper mapper, SalesRepService salesService) {
         super(repository, mapper);
+        this.salesService = salesService;
     }
 
-    public MyUserProject getByUsername(String username) {
-        Optional<MyUserProject> found = repository.getByUsername(username);
-        return found.orElseThrow(() -> new RuntimeException("User not found"));
+//    public AccountsProject getByUsername(String username) {
+//        Optional<AccountsProject> found = repository.getByUsername(username);
+//        return found.orElseThrow(() -> new RuntimeException("User not found"));
+//    }
+
+    public AccountsDTO create(AccountsCreateVM vm){
+        AccountsDTO dto = new AccountsDTO();
+        dto.setName(vm.getName());
+        dto.setWebsite(vm.getWebsite());
+        dto.setPrimaryContactPerson(vm.getPrimaryContactPerson());
+        dto.setSalesId(salesService.get(vm.getSalesId()));
+        return create(dto);
     }
 
 }
