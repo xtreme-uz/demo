@@ -22,7 +22,7 @@ public class SalesRep extends BaseEntity {
     @JoinColumn(name = "region_id", referencedColumnName = "id")
     private Region region;
 
-    @OneToMany(mappedBy = "salesId", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "sales", cascade = CascadeType.ALL)
     private List<Accounts> accountsId;
 
 }

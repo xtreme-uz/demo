@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -25,7 +26,8 @@ public class Orders extends BaseEntity{
     private Integer total;
 
     @Column(name = "occurred_at")
-    private String date;
+    @Temporal(TemporalType.DATE)
+    private Date date;
 
     private Double standardAmountUsd;
     private Double glossyAmountUsd;

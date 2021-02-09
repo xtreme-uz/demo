@@ -18,13 +18,11 @@ public class AccountsResource {
 
     private final AccountsService service;
 
-    //Should return id and Names columns from Accounts table
-    //contact person is not showing
-    @GetMapping("/accounts/nameColumns")
+    //Returns id and Names columns from Accounts table
+    @GetMapping("/accounts/name-columns")
     public ResponseEntity<?> getAllNames(){
         return ResponseEntity.ok(service.getIdAndName());
     }
-
 
     @GetMapping("/accounts")
     public ResponseEntity<?> getAll() {

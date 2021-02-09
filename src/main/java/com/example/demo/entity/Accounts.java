@@ -22,7 +22,7 @@ public class Accounts extends BaseEntity {
 
     @ManyToOne
     @JoinColumn(name="sales_rep_id", referencedColumnName = "id")
-    private SalesRep salesId;
+    private SalesRep sales;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "accounts")
     private List<Orders> orders;

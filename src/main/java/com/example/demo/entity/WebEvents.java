@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -20,7 +21,9 @@ public class WebEvents extends BaseEntity{
     private Accounts account;
 
     @Column(name = "occurred_at")
-    private String date;
+    @Temporal(TemporalType.DATE)
+    private Date date;
+
     private String channel;
 
 

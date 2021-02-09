@@ -15,6 +15,6 @@ public class AccountsDTO implements DTO {
     private String name;
     private String website;
     private String pContact;
-    private SalesRepDTO salesId;
+    private SalesRepDTO sales;
 
 }

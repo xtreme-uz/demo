@@ -25,7 +25,7 @@ public class AccountsService extends AbsService<Accounts, AccountsDTO, AccountsR
         dto.setName(vm.getName());
         dto.setWebsite(vm.getWebsite());
         dto.setPContact(vm.getPContact());
-        dto.setSalesId(salesService.get(vm.getSalesId()));
+        dto.setSales(salesService.get(vm.getSales()));
         return create(dto);
     }
 

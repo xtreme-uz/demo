@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Date;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -13,7 +15,7 @@ public class WebEventsDTO implements DTO{
 
     private Long id;
     private AccountsDTO account;
-    private String date;
+    private Date date;
     private String channel;
 
 }

@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public interface AccountsRepository extends JpaRepository<Accounts, Long> {
 
-    @Query(value = "SELECT a.id, a.name FROM accounts a", nativeQuery = true)
+    @Query(value = "SELECT a.id, a.name, a.p_contact AS pcontact FROM accounts a ORDER BY a.id", nativeQuery = true)
     List<AccountsNameColumnProject> getIdAndName();
 
 }

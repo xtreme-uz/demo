@@ -8,5 +8,5 @@ public class AccountsCreateVM {
     private String name;
     private String website;
     private String pContact;
-    private Long salesId;
+    private Long sales;
 }
