@@ -22,7 +22,6 @@ public class AccountsResource {
     public ResponseEntity<?> getById(@PathVariable Long id){
         return ResponseEntity.ok(service.get(id));
     }
-    /******************************************************************************/
 
     @GetMapping("/account-columns")
     public ResponseEntity<?> getAllNames(){
