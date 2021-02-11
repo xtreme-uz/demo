@@ -21,4 +21,6 @@ public class MyUser extends BaseEntity {
     @Column(nullable = false)
     private String password;
 
+    private String img;
+
 }

@@ -17,4 +17,6 @@ public class MyUserDTO implements DTO {
 
     private String password;
 
+    private String img;
+
 }
