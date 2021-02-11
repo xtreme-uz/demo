@@ -2,9 +2,9 @@ package com.example.demo.service;
 
 import com.example.demo.entity.Accounts;
 import com.example.demo.mapper.AccountsMapper;
+import com.example.demo.projections.AccountsNameColumnProject;
 import com.example.demo.repository.AccountsRepository;
 import com.example.demo.service.dto.AccountsDTO;
-import com.example.demo.projections.AccountsNameColumnProject;
 import com.example.demo.web.rest.vm.AccountsCreateVM;
 import org.springframework.stereotype.Service;
 
@@ -30,10 +30,9 @@ public class AccountsService extends AbsService<Accounts, AccountsDTO, AccountsR
     }
 
     public List<AccountsNameColumnProject> getIdAndName(){
-
         List<AccountsNameColumnProject> names = repository.getIdAndName();
-
         return names;
     }
+
 
 }

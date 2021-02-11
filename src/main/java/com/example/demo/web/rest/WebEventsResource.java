@@ -12,32 +12,32 @@ import java.util.Collections;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api")
+@RequestMapping("/webEvents")
 public class WebEventsResource {
 
     private final WebEventsService service;
 
-    @PostMapping("/webEvents")
+    @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody WebEventsCreateVM vm){
         return new ResponseEntity<>(service.create(vm), HttpStatus.CREATED);
     }
 
-    @GetMapping("/webEvents/{id}")
+    @GetMapping("/get-id/{id}")
     public ResponseEntity<?> getById(@PathVariable Long id){
         return ResponseEntity.ok(service.get(id));
     }
 
-    @GetMapping("/webEvents")
+    @GetMapping("/list")
     public ResponseEntity<?> getAll(){
         return ResponseEntity.ok(service.getAll());
     }
 
-    @PostMapping("/webEvents/{id}/")
+    @PostMapping("/{id}/")
     public ResponseEntity<?> update(@PathVariable Long id, @RequestBody WebEventsDTO webDto){
         return ResponseEntity.ok(service.update(id, webDto));
     }
 
-    @DeleteMapping("/webEvents/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<?> delete(@PathVariable Long id){
         service.delete(id);
         return ResponseEntity.ok(Collections.emptyMap());

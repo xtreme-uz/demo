@@ -18,10 +18,5 @@ public class DemoApplication {
 	public Map<String, Object> myBean() {
 		return new HashMap<>();
 	}
-//
-//	@Bean("myBean2")
-//	public Map<String, Object> myBean2() {
-//		return new HashMap<>();
-//	}
 
 }

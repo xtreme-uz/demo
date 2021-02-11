@@ -11,32 +11,32 @@ import java.util.Collections;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api")
+@RequestMapping("/regions")
 public class RegionResource {
 
     private final RegionService service;
 
-    @GetMapping("/regions")
+    @GetMapping("/list")
     public ResponseEntity<?> getAll() {
         return ResponseEntity.ok(service.getAll());
     }
 
-    @GetMapping("/regions/{id}")
+    @GetMapping("/get-id/{id}")
     public ResponseEntity<?> getById(@PathVariable Long id){
         return ResponseEntity.ok(service.get(id));
     }
 
-    @PostMapping("/regions")
+    @PostMapping("/create")
     public ResponseEntity<RegionDTO> create(@RequestBody RegionDTO region) {
         return new ResponseEntity<>(service.create(region), HttpStatus.CREATED);
     }
 
-    @PutMapping("/regions/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<RegionDTO> update(@RequestBody RegionDTO user, @PathVariable Long id) {
         return ResponseEntity.ok(service.update(id, user));
     }
 
-    @DeleteMapping("/regions/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<?> delete(@PathVariable Long id) {
         service.delete(id);
         return ResponseEntity.ok(Collections.emptyMap());

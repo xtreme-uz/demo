@@ -12,33 +12,32 @@ import java.util.Collections;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api")
+@RequestMapping("/orders")
 public class OrdersResource  {
 
     private final OrdersService service;
 
-    //TODO getById
-    @PostMapping("/orders")
+    @PostMapping("/create")
     public ResponseEntity<OrdersDTO> create(@RequestBody OrdersCreateVM orders){
         return new ResponseEntity<>(service.create(orders), HttpStatus.CREATED);
     }
 
-    @GetMapping("/orders")
+    @GetMapping("/list")
     public ResponseEntity<?> getAll(){
         return ResponseEntity.ok(service.getAll());
     }
 
-    @GetMapping("/orders/{id}")
+    @GetMapping("/get-id/{id}")
     public ResponseEntity<?> getById(@PathVariable Long id){
         return ResponseEntity.ok(service.get(id));
     }
 
-    @PutMapping("/orders/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<OrdersDTO> update(@RequestBody OrdersDTO orders, @PathVariable Long id){
         return ResponseEntity.ok(service.update(id, orders));
     }
 
-    @DeleteMapping("/orders/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<?> delete(@PathVariable Long id){
         service.delete(id);
         return ResponseEntity.ok(Collections.emptyMap());
