@@ -9,26 +9,27 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collections;
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/orders")
+@RequestMapping("/api/orders")
 public class OrdersResource  {
 
     private final OrdersService service;
 
-    @PostMapping("/create")
+    @PostMapping("/store-new")
     public ResponseEntity<OrdersDTO> create(@RequestBody OrdersCreateVM orders){
         return new ResponseEntity<>(service.create(orders), HttpStatus.CREATED);
     }
 
     @GetMapping("/list")
-    public ResponseEntity<?> getAll(){
+    public ResponseEntity<List<OrdersDTO>> getAll(){
         return ResponseEntity.ok(service.getAll());
     }
 
     @GetMapping("/get-id/{id}")
-    public ResponseEntity<?> getById(@PathVariable Long id){
+    public ResponseEntity<OrdersDTO> getById(@PathVariable Long id){
         return ResponseEntity.ok(service.get(id));
     }
 

@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collections;
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -18,19 +19,19 @@ public class SalesRepResource {
 
     private final SalesRepService service;
 
-    @GetMapping("/list")
-    public ResponseEntity<?> getAll() {
-        return ResponseEntity.ok(service.getAll());
-    }
-
-    @GetMapping("/get-id/{id}")
-    public ResponseEntity<?> getById(@PathVariable Long id){
-        return ResponseEntity.ok(service.get(id));
-    }
-
-    @PostMapping("/create")
+    @PostMapping("/store-new")
     public ResponseEntity<SalesRepDTO> create(@RequestBody SalesRepCreateVM vm) {
         return new ResponseEntity<>(service.create(vm), HttpStatus.CREATED);
+    }
+
+    @GetMapping("/get-all")
+    public ResponseEntity<List<SalesRepDTO>> getAll() {
+        return ResponseEntity.ok(service.getAll());
+    }
+    //*
+    @GetMapping("/get-sales-rep-by-id/{id}")
+    public ResponseEntity<SalesRepDTO> getById(@PathVariable Long id){
+        return ResponseEntity.ok(service.get(id));
     }
 
     @PutMapping("/{id}")
