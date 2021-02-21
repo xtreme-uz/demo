@@ -29,7 +29,7 @@ public class RegionResource {
         return ResponseEntity.ok(service.getAll());
     }
     //*
-    @GetMapping("/get-region-by-id/{id}")
+    @GetMapping("/get-regions-by-id/{id}")
     public ResponseEntity<RegionDTO> getById(@PathVariable Long id){
         return ResponseEntity.ok(service.get(id));
     }
