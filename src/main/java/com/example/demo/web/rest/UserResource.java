@@ -3,7 +3,6 @@ package com.example.demo.web.rest;
 import com.example.demo.service.MyUserService;
 import com.example.demo.service.dto.MyUserDTO;
 import lombok.RequiredArgsConstructor;
-import org.apache.catalina.connector.Response;
 import org.springframework.core.io.Resource;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;

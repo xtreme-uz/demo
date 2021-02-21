@@ -2,7 +2,7 @@ package com.example.demo.web.rest;
 
 
 import com.example.demo.service.SalesRepService;
-import com.example.demo.service.dto.RegionDTO;
+import com.example.demo.service.impl.SalesRepServiceImpl;
 import com.example.demo.service.dto.SalesRepDTO;
 import com.example.demo.web.rest.vm.SalesRepCreateVM;
 import lombok.RequiredArgsConstructor;
