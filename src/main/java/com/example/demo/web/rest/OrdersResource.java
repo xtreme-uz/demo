@@ -43,4 +43,5 @@ public class OrdersResource  {
         service.delete(id);
         return ResponseEntity.ok(Collections.emptyMap());
     }
+
 }
