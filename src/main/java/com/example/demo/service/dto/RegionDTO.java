@@ -15,6 +15,6 @@ public class RegionDTO implements DTO {
 
     private String name;
 
-    private String image;
+
 
 }

@@ -34,5 +34,6 @@ public class Orders extends BaseEntity{
     private Double posterAmountUsd;
     private Double totalAmountUsd;
 
+    private String image;
 
 }

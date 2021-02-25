@@ -4,9 +4,11 @@ import com.example.demo.service.OrderService;
 import com.example.demo.service.dto.OrdersDTO;
 import com.example.demo.web.rest.vm.OrdersCreateVM;
 import lombok.RequiredArgsConstructor;
+import org.springframework.core.io.Resource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Collections;
 import java.util.List;
@@ -42,5 +44,16 @@ public class OrdersResource  {
     public ResponseEntity<?> delete(@PathVariable Long id){
         service.delete(id);
         return ResponseEntity.ok(Collections.emptyMap());
+    }
+
+    //needs a revision
+    @PostMapping("/{id}/img/upload")
+    public ResponseEntity<OrdersDTO> uploadImage(@PathVariable Long id, @RequestParam MultipartFile file){
+        return ResponseEntity.ok(service.imgUpload(id, file));
+    }
+
+    @PostMapping("/{id}/img/load")
+    public ResponseEntity<Resource> loadImage(@PathVariable Long id, @RequestParam String file){
+        return ResponseEntity.ok(service.load(file));
     }
 }

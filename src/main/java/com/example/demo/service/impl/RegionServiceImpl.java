@@ -26,43 +26,5 @@ public class RegionServiceImpl extends AbsServiceImpl<Region, RegionDTO, RegionR
         super(repository, mapper);
     }
 
-    @Override
-    public RegionDTO imgUpload(Long id, MultipartFile file){
-        Optional<Region> byId = repository.findById(id);
-        if(byId.isPresent()){
-            //
-            Region region = byId.get();
-            region.setImage(saveFile(file));
-            Region save = repository.save(region);
-            return mapper.toDto(save);
-        }
-        throw new RuntimeException("User not found");
-    }
 
-    @Override
-    public Resource load(String filePath){
-        try {
-            Path path = Paths.get(filePath.replace("|", "/")).normalize();
-            return new UrlResource(path.toUri());
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-        throw new RuntimeException("exception while loading file");
-    }
-
-    private String saveFile(MultipartFile file) {
-        String fileName = file.getOriginalFilename();
-        String newFileName = System.currentTimeMillis() + fileName;
-        Path filePath = Path.of("profile", "img", newFileName);
-        if(!Files.exists(filePath)){
-            try {
-                Files.createDirectories(filePath);
-                Files.copy(file.getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);
-                return filePath.toString();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        throw new RuntimeException("exception while uploading file");
-    }
 }

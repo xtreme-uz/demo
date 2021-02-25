@@ -8,7 +8,5 @@ import org.springframework.web.multipart.MultipartFile;
 public interface RegionService
         extends AbsService<Region, RegionDTO>  {
 
-    RegionDTO imgUpload(Long id, MultipartFile file);
 
-    Resource load(String filePath);
 }

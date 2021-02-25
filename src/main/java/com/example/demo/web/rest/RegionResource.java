@@ -45,15 +45,6 @@ public class RegionResource {
         return ResponseEntity.ok(Collections.emptyMap());
     }
 
-    //needs a revision
-    @PostMapping("/{id}/img/upload")
-    public ResponseEntity<RegionDTO> uploadImage(@PathVariable Long id, @RequestParam MultipartFile file){
-        return ResponseEntity.ok(service.imgUpload(id, file));
-    }
 
-    @PostMapping("/{id}/img/load")
-    public ResponseEntity<Resource> loadImage(@PathVariable Long id, @RequestParam String file){
-        return ResponseEntity.ok(service.load(file));
-    }
 
 }
