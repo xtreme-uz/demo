@@ -15,38 +15,38 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/orders")
+@RequestMapping("/api")
 public class OrdersResource  {
 
     private final OrderService service;
 
-    @PostMapping("/store-new")
+    @PostMapping("/orders")
     public ResponseEntity<OrdersDTO> create(@RequestBody OrdersCreateVM orders){
         return new ResponseEntity<>(service.create(orders), HttpStatus.CREATED);
     }
 
-    @GetMapping("/list")
+    @GetMapping("/orders")
     public ResponseEntity<List<OrdersDTO>> getAll(){
         return ResponseEntity.ok(service.getAll());
     }
 
-    @GetMapping("/get-id/{id}")
+    @GetMapping("/orders/{id}")
     public ResponseEntity<OrdersDTO> getById(@PathVariable Long id){
         return ResponseEntity.ok(service.get(id));
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/orders/{id}")
     public ResponseEntity<OrdersDTO> update(@RequestBody OrdersDTO orders, @PathVariable Long id){
         return ResponseEntity.ok(service.update(id, orders));
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/orders/{id}")
     public ResponseEntity<?> delete(@PathVariable Long id){
         service.delete(id);
         return ResponseEntity.ok(Collections.emptyMap());
     }
 
-    //needs a revision
+    //still experimental
     @PostMapping("/{id}/file/upload")
     public ResponseEntity<OrdersDTO> uploadFile(@PathVariable Long id, @RequestParam MultipartFile file){
         return ResponseEntity.ok(service.fileUpload(id, file));

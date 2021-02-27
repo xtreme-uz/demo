@@ -13,36 +13,34 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/webEvents")
+@RequestMapping("/api")
 public class WebEventsResource {
 
     private final WebEventsService service;
 
-    @PostMapping("/store-new")
+    @PostMapping("/webEvents")
     public ResponseEntity<WebEventsDTO> create(@RequestBody WebEventsCreateVM vm){
         return new ResponseEntity<>(service.create(vm), HttpStatus.CREATED);
     }
 
-    @GetMapping("/get-web-by-id/{id}")
+    @GetMapping("/webEvents/{id}")
     public ResponseEntity<WebEventsDTO> getById(@PathVariable Long id){
         return ResponseEntity.ok(service.get(id));
     }
 
-    @GetMapping("/get-all")
+    @GetMapping("/webEvents")
     public ResponseEntity<List<WebEventsDTO>> getAll(){
         return ResponseEntity.ok(service.getAll());
     }
 
-    @PostMapping("/{id}/")
+    @PostMapping("/webEvents/{id}")
     public ResponseEntity<WebEventsDTO> update(@PathVariable Long id, @RequestBody WebEventsDTO webDto){
         return ResponseEntity.ok(service.update(id, webDto));
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/webEvents/{id}")
     public ResponseEntity<?> delete(@PathVariable Long id){
         service.delete(id);
         return ResponseEntity.ok(Collections.emptyMap());
     }
-
-
 }

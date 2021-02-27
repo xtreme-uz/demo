@@ -14,35 +14,34 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/sales")
+@RequestMapping("/api")
 public class SalesRepResource {
 
     private final SalesRepService service;
 
-    @PostMapping("/store-new")
+    @PostMapping("/sales")
     public ResponseEntity<SalesRepDTO> create(@RequestBody SalesRepCreateVM vm) {
         return new ResponseEntity<>(service.create(vm), HttpStatus.CREATED);
     }
 
-    @GetMapping("/get-all")
+    @GetMapping("/sales")
     public ResponseEntity<List<SalesRepDTO>> getAll() {
         return ResponseEntity.ok(service.getAll());
     }
     //*
-    @GetMapping("/get-sales-rep-by-id/{id}")
+    @GetMapping("/sales/{id}")
     public ResponseEntity<SalesRepDTO> getById(@PathVariable Long id){
         return ResponseEntity.ok(service.get(id));
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/sales/{id}")
     public ResponseEntity<SalesRepDTO> update(@RequestBody SalesRepDTO user, @PathVariable Long id) {
         return ResponseEntity.ok(service.update(id, user));
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/sales/{id}")
     public ResponseEntity<?> delete(@PathVariable Long id) {
         service.delete(id);
         return ResponseEntity.ok(Collections.emptyMap());
     }
-
 }

@@ -2,6 +2,8 @@ package com.example.demo.web.rest.vm;
 
 import lombok.Data;
 
+import java.util.Date;
+
 @Data
 public class OrdersCreateVM {
 
@@ -10,7 +12,7 @@ public class OrdersCreateVM {
     private Integer posterQty;
     private Integer glossyQty;
     private Integer total;
-    private String date;
+    private Date date;
     private Double standardAmountUsd;
     private Double glossyAmountUsd;
     private Double posterAmountUsd;
