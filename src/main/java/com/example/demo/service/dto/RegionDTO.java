@@ -15,6 +15,4 @@ public class RegionDTO implements DTO {
 
     private String name;
 
-
-
 }

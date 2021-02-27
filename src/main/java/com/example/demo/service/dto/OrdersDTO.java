@@ -22,5 +22,6 @@ public class OrdersDTO implements DTO{
     private Double glossyAmountUsd;
     private Double posterAmountUsd;
     private Double totalAmountUsd;
-    private String image;
+
+    private String ordersListFile;
 }

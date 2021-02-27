@@ -48,12 +48,12 @@ public class OrdersServiceImpl extends AbsServiceImpl<Orders, OrdersDTO, OrdersR
     }
 
     @Override
-    public OrdersDTO imgUpload(Long id, MultipartFile file){
+    public OrdersDTO fileUpload(Long id, MultipartFile file){
         Optional<Orders> byId = repository.findById(id);
         if(byId.isPresent()){
             //
             Orders orders = byId.get();
-            orders.setImage(saveFile(file));
+            orders.setOrdersListFile(saveFile(file));
             Orders save = repository.save(orders);
             return mapper.toDto(save);
         }

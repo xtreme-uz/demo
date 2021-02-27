@@ -11,7 +11,7 @@ public interface OrderService
 
     OrdersDTO create(OrdersCreateVM vm);
 
-    OrdersDTO imgUpload(Long id, MultipartFile file);
+    OrdersDTO fileUpload(Long id, MultipartFile file);
 
     Resource load(String filePath);
 }

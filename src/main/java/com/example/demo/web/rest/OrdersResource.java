@@ -47,13 +47,13 @@ public class OrdersResource  {
     }
 
     //needs a revision
-    @PostMapping("/{id}/img/upload")
-    public ResponseEntity<OrdersDTO> uploadImage(@PathVariable Long id, @RequestParam MultipartFile file){
-        return ResponseEntity.ok(service.imgUpload(id, file));
+    @PostMapping("/{id}/file/upload")
+    public ResponseEntity<OrdersDTO> uploadFile(@PathVariable Long id, @RequestParam MultipartFile file){
+        return ResponseEntity.ok(service.fileUpload(id, file));
     }
 
-    @PostMapping("/{id}/img/load")
-    public ResponseEntity<Resource> loadImage(@PathVariable Long id, @RequestParam String file){
+    @PostMapping("/{id}/file/load")
+    public ResponseEntity<Resource> loadFile(@PathVariable Long id, @RequestParam String file){
         return ResponseEntity.ok(service.load(file));
     }
 }
